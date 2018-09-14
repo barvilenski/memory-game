@@ -110,3 +110,7 @@ header {
   transform: rotateY(180deg);
   pointer-events: none;
 }
+
+.card-matched {
+  pointer-events: none;
+}

@@ -2,11 +2,11 @@ const cardSymbols = ['anchor', 'anchor', 'bicycle', 'bicycle', 'bolt', 'bolt', '
 const cardsBoard = document.querySelector('.cards-board');
 const timerMinutes = document.querySelector('.minutes');
 const timerSeconds = document.querySelector('.seconds');
-const movesCounterElem = document.querySelector('.moves-value');
+const movesNumber = document.querySelector('.moves-value');
 const starsArray = document.querySelectorAll('.star');
-let selectedCards = [];
+let selectedCards = [], matchedCardsCounter = 0;
 let firstMove = true, movesCounter = 0, starsCounter = 3;
-let gameTimer, totalSeconds = 0;
+let gameTimer, secondsCounter = 0;
 
 function initGame() {
   const shuffledSymbols = shuffle(cardSymbols);
@@ -64,14 +64,14 @@ function flipCard() {
   if (selectedCards.length === 2) {
     cardsBoard.classList.add('cards-board-disabled');
     incrementMovesCounter();
-    // check cards match
+    checkCardsMatch();
   }
 }
 
 function setTime() {
-  totalSeconds++;
-  timerMinutes.textContent = padTime(parseInt(totalSeconds / 60));
-  timerSeconds.textContent = padTime(totalSeconds % 60);
+  secondsCounter++;
+  timerMinutes.textContent = padTime(parseInt(secondsCounter / 60));
+  timerSeconds.textContent = padTime(secondsCounter % 60);
 }
 
 function padTime(time) {
@@ -80,7 +80,7 @@ function padTime(time) {
 
 function incrementMovesCounter() {
   movesCounter++;
-  movesCounterElem.textContent = movesCounter;
+  movesNumber.textContent = movesCounter;
   updateStarRating();
 }
 
@@ -95,6 +95,33 @@ function updateStarRating() {
       starsCounter = 1;
       break;
   }
+}
+
+function checkCardsMatch() {
+  if (selectedCards[0].getAttribute('data-symbol') === selectedCards[1].getAttribute('data-symbol')) {
+    matchSelectedCards();
+  } else {
+    setTimeout(resetSelectedCards, 1000);
+  }
+
+  setTimeout(function() {
+    cardsBoard.classList.remove('cards-board-disabled');
+  }, 1000);
+}
+
+function matchSelectedCards() {
+  for (let card of selectedCards) {
+    card.classList.add('card-matched');
+  }
+  selectedCards = [];
+  matchedCardsCounter += 2;
+}
+
+function resetSelectedCards() {
+  for (let card of selectedCards) {
+    card.classList.remove('card-flipped');
+  }
+  selectedCards = [];
 }
 
 initGame();
