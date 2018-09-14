@@ -74,6 +74,10 @@ header {
   pointer-events: none;
 }
 
+.cards-board-blurred {
+  filter: blur(15px);
+}
+
 /* ---------------------- Card ------------------------ */
 .card {
   margin: 5px;
@@ -113,4 +117,25 @@ header {
 
 .card-matched {
   pointer-events: none;
+}
+
+/* ----------------- Completion Screen ---------------- */
+.completion-screen {
+  position: absolute;
+  width: 80%;
+  max-width: 500px;
+  top: -400px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: white;
+  transition: top 0.5s;
+}
+
+.completion-screen-enabled {
+  top: 200px;
 }

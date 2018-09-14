@@ -3,7 +3,11 @@ const cardsBoard = document.querySelector('.cards-board');
 const timerMinutes = document.querySelector('.minutes');
 const timerSeconds = document.querySelector('.seconds');
 const movesNumber = document.querySelector('.moves-value');
+const starsContainer = document.querySelector('.stars');
 const starsArray = document.querySelectorAll('.star');
+const completionScreen = document.querySelector('.completion-screen');
+const completionStars = document.querySelector('.completion-stars');
+const completionMessage = document.querySelector('.completion-message');
 let selectedCards = [], matchedCardsCounter = 0;
 let firstMove = true, movesCounter = 0, starsCounter = 3;
 let gameTimer, secondsCounter = 0;
@@ -65,7 +69,7 @@ function flipCard() {
     cardsBoard.classList.add('cards-board-disabled');
     incrementMovesCounter();
     checkCardsMatch();
-    setTimeout(function() {
+    (matchedCardsCounter === cardSymbols.length) ? setTimeout(finishGame, 1200) : setTimeout(function() {
       cardsBoard.classList.remove('cards-board-disabled');
     }, 1000);
   }
@@ -121,6 +125,27 @@ function resetSelectedCards() {
     card.classList.remove('card-flipped');
   }
   selectedCards = [];
+}
+
+function finishGame() {
+  clearInterval(gameTimer);
+
+  completionStars.innerHTML = starsContainer.innerHTML;
+
+  switch (starsCounter) {
+    case 3:
+      completionMessage.textContent = 'Perfect job, you did extremely well!'
+      break;
+    case 2:
+      completionMessage.textContent = 'Nicely done, almost perfect!'
+      break;
+    case 1:
+      completionMessage.textContent = 'Practice some more for better results!'
+      break;
+  }
+
+  cardsBoard.classList.add('cards-board-blurred');
+  completionScreen.classList.add('completion-screen-enabled');
 }
 
 initGame();
