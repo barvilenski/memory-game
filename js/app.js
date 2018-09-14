@@ -8,6 +8,7 @@ const starsArray = document.querySelectorAll('.star');
 const completionScreen = document.querySelector('.completion-screen');
 const completionStars = document.querySelector('.completion-stars');
 const completionMessage = document.querySelector('.completion-message');
+const resetGameButton = document.querySelector('.reset-game');
 let selectedCards = [], matchedCardsCounter = 0;
 let firstMove = true, movesCounter = 0, starsCounter = 3;
 let gameTimer, secondsCounter = 0;
@@ -37,6 +38,8 @@ function initGame() {
 
     cardsBoard.appendChild(card);
   }
+
+  resetGameButton.addEventListener('click', resetGame);
 }
 
 function shuffle(array) {
@@ -57,6 +60,7 @@ function shuffle(array) {
 function flipCard() {
   if (firstMove) {
     gameTimer = setInterval(setTime, 1000);
+    resetGameButton.classList.add('reset-game-enabled');
     firstMove = false;
   }
 
@@ -146,6 +150,10 @@ function finishGame() {
 
   cardsBoard.classList.add('cards-board-blurred');
   completionScreen.classList.add('completion-screen-enabled');
+}
+
+function resetGame() {
+  window.location.reload(false);
 }
 
 initGame();

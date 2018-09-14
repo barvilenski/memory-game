@@ -38,6 +38,7 @@ html {
 body {
   max-width: 800px;
   margin: 25px auto auto;
+  text-align: center;
 }
 
 /* -------------------- Header ---------------------- */
@@ -45,6 +46,10 @@ header {
   display: flex;
   flex-direction: column;
   user-select: none;
+}
+
+.logo {
+  text-align: left;
 }
 
 .game-stats {
@@ -117,6 +122,20 @@ header {
 
 .card-matched {
   pointer-events: none;
+}
+
+/* ------------------- Reset Button ------------------- */
+.reset-game {
+  border: none;
+  border-radius: 5px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.reset-game-enabled {
+  opacity: 0.6;
+  pointer-events: auto;
 }
 
 /* ----------------- Completion Screen ---------------- */
