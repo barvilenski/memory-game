@@ -65,6 +65,9 @@ function flipCard() {
     cardsBoard.classList.add('cards-board-disabled');
     incrementMovesCounter();
     checkCardsMatch();
+    setTimeout(function() {
+      cardsBoard.classList.remove('cards-board-disabled');
+    }, 1000);
   }
 }
 
@@ -103,10 +106,6 @@ function checkCardsMatch() {
   } else {
     setTimeout(resetSelectedCards, 1000);
   }
-
-  setTimeout(function() {
-    cardsBoard.classList.remove('cards-board-disabled');
-  }, 1000);
 }
 
 function matchSelectedCards() {
