@@ -1,7 +1,10 @@
 const cardSymbols = ['anchor', 'anchor', 'bicycle', 'bicycle', 'bolt', 'bolt', 'bomb', 'bomb', 'cube', 'cube', 'gem', 'gem', 'leaf', 'leaf', 'paper-plane', 'paper-plane'];
 const cardsBoard = document.querySelector('.cards-board');
+const timerMinutes = document.getElementById('minutes');
+const timerSeconds = document.getElementById('seconds');
 let firstMove = true;
 let selectedCards = [];
+let gameTimer, totalSeconds = 0;
 
 function initGame() {
   const shuffledSymbols = shuffle(cardSymbols);
@@ -47,7 +50,7 @@ function shuffle(array) {
 
 function flipCard() {
   if (firstMove) {
-    // start timer
+    gameTimer = setInterval(setTime, 1000);
     firstMove = false;
   }
 
@@ -61,6 +64,16 @@ function flipCard() {
     // increase moves count
     // check cards match
   }
+}
+
+function setTime() {
+  totalSeconds++;
+  timerMinutes.textContent = padTime(parseInt(totalSeconds / 60));
+  timerSeconds.textContent = padTime(totalSeconds % 60);
+}
+
+function padTime(time) {
+  return time > 9 ? time : '0' + time;
 }
 
 initGame();
