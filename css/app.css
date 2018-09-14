@@ -70,6 +70,10 @@ header {
   flex-wrap: wrap;
 }
 
+.cards-board-disabled {
+  pointer-events: none;
+}
+
 /* ---------------------- Card ------------------------ */
 .card {
   margin: 5px;
