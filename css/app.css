@@ -59,6 +59,10 @@ header {
   margin-left: auto;
 }
 
+.star-disabled {
+  opacity: 0.1;
+}
+
 /* ------------------ Cards Board --------------------- */
 .cards-board {
   list-style: none;

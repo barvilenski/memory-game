@@ -1,9 +1,11 @@
 const cardSymbols = ['anchor', 'anchor', 'bicycle', 'bicycle', 'bolt', 'bolt', 'bomb', 'bomb', 'cube', 'cube', 'gem', 'gem', 'leaf', 'leaf', 'paper-plane', 'paper-plane'];
 const cardsBoard = document.querySelector('.cards-board');
-const timerMinutes = document.getElementById('minutes');
-const timerSeconds = document.getElementById('seconds');
-let firstMove = true;
+const timerMinutes = document.querySelector('.minutes');
+const timerSeconds = document.querySelector('.seconds');
+const movesCounterElem = document.querySelector('.moves-value');
+const starsArray = document.querySelectorAll('.star');
 let selectedCards = [];
+let firstMove = true, movesCounter = 0, starsCounter = 3;
 let gameTimer, totalSeconds = 0;
 
 function initGame() {
@@ -61,7 +63,7 @@ function flipCard() {
 
   if (selectedCards.length === 2) {
     cardsBoard.classList.add('cards-board-disabled');
-    // increase moves count
+    incrementMovesCounter();
     // check cards match
   }
 }
@@ -74,6 +76,25 @@ function setTime() {
 
 function padTime(time) {
   return time > 9 ? time : '0' + time;
+}
+
+function incrementMovesCounter() {
+  movesCounter++;
+  movesCounterElem.textContent = movesCounter;
+  updateStarRating();
+}
+
+function updateStarRating() {
+  switch (movesCounter) {
+    case 14:
+      starsArray[2].classList.add('star-disabled');
+      starsCounter = 2;
+      break;
+    case 18:
+      starsArray[1].classList.add('star-disabled');
+      starsCounter = 1;
+      break;
+  }
 }
 
 initGame();
