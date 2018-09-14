@@ -1,5 +1,34 @@
 const cardSymbols = ['anchor', 'anchor', 'bicycle', 'bicycle', 'bolt', 'bolt', 'bomb', 'bomb', 'cube', 'cube', 'gem', 'gem', 'leaf', 'leaf', 'paper-plane', 'paper-plane'];
 const cardsBoard = document.querySelector('.cards-board');
+let firstMove = true;
+let selectedCards = [];
+
+function initGame() {
+  const shuffledSymbols = shuffle(cardSymbols);
+  for (let symbol of shuffledSymbols) {
+    const card = document.createElement('li');
+    const cardFront = document.createElement('figure');
+    const cardBack = document.createElement('figure');
+    const frontSymbol = document.createElement('i');
+    const backSymbol = document.createElement('i');
+
+    card.addEventListener('click', flipCard);
+    card.setAttribute('class', 'card');
+    card.setAttribute('data-symbol', symbol);
+
+    cardFront.setAttribute('class', 'card-front');
+    cardBack.setAttribute('class', 'card-back');
+    frontSymbol.setAttribute('class', `card-symbol fas fa-${symbol}`);
+    backSymbol.setAttribute('class', 'card-symbol fas fa-question');
+
+    cardFront.appendChild(frontSymbol);
+    cardBack.appendChild(backSymbol);
+    card.appendChild(cardFront);
+    card.appendChild(cardBack);
+
+    cardsBoard.appendChild(card);
+  }
+}
 
 function shuffle(array) {
   let currentIndex = array.length, randomIndex, temporaryValue;
@@ -16,29 +45,21 @@ function shuffle(array) {
   return array;
 }
 
-function initGame() {
-  const shuffledSymbols = shuffle(cardSymbols);
-  for (let symbol of shuffledSymbols) {
-    const card = document.createElement('li');
-    const cardFront = document.createElement('figure');
-    const cardBack = document.createElement('figure');
-    const frontSymbol = document.createElement('i');
-    const backSymbol = document.createElement('i');
+function flipCard() {
+  if (firstMove) {
+    // start timer
+    firstMove = false;
+  }
 
-    card.setAttribute('class', 'card');
-    card.setAttribute('data-symbol', symbol);
+  if (selectedCards.length <= 1) {
+    selectedCards.push(this);
+    this.classList.add('card-flipped');
+  }
 
-    cardFront.setAttribute('class', 'card-front');
-    cardBack.setAttribute('class', 'card-back');
-    backSymbol.setAttribute('class', 'card-symbol fas fa-question');
-    frontSymbol.setAttribute('class', `card-symbol fas fa-${symbol}`);
-
-    cardFront.appendChild(frontSymbol);
-    cardBack.appendChild(backSymbol);
-    card.appendChild(cardBack);
-    card.appendChild(cardFront);
-
-    cardsBoard.appendChild(card);
+  if (selectedCards.length === 2) {
+    cardsBoard.classList.add('cards-board-disabled');
+    // increase moves count
+    // check cards match
   }
 }
 
