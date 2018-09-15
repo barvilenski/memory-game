@@ -51,6 +51,7 @@ body {
 
 /* -------------------- Header ---------------------- */
 header {
+	padding: 5px;
   user-select: none;
 }
 
@@ -146,10 +147,20 @@ header {
 .card-front {
   transform: rotateY(180deg);
   background-color: lightgray;
+	z-index: 2;
 }
 
 .card-back {
   background-color: gray;
+	border: 5px solid lightgray;
+}
+
+.card-front .card-symbol {
+	color: white;
+}
+
+.card-back .card-symbol {
+	opacity: 0.2;
 }
 
 .card-symbol {
@@ -177,12 +188,16 @@ header {
 
 /* ------------------- Reset Button ------------------- */
 .reset-game {
-  border: none;
+	opacity: 0;
+	font-size: 16px;
+	color: white;
+	background-color: gray;
+	padding: 6px;
+	margin-top: 5px;
+	border: none;
   border-radius: 5px;
   pointer-events: none;
-  opacity: 0;
   transition: opacity 0.3s;
-	font-size: 16px;
 }
 @media only screen and (min-width: 420px) {
 	.reset-game {
@@ -192,6 +207,7 @@ header {
 @media only screen and (min-width: 620px) {
 	.reset-game {
 		font-size: 24px;
+		padding: 10px;
 	}
 }
 
@@ -261,8 +277,12 @@ header {
 	}
 }
 
+.completion-stars {
+	margin: 10px auto;
+}
+
 .completion-message {
 	background-color: lightgray;
 	border-radius: 10px;
-	padding: 5px;
+	padding: 10px;
 }
