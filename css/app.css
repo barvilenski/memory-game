@@ -40,26 +40,58 @@ html {
 }
 
 body {
-  max-width: 800px;
+  max-width: 720px;
   margin: 25px auto auto;
+	padding: 20px;
   text-align: center;
 	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: 16px;
+	line-height: 1;
 }
 
 /* -------------------- Header ---------------------- */
 header {
-  display: flex;
-  flex-direction: column;
   user-select: none;
 }
 
 .logo {
   text-align: left;
 	font-family: 'Bowlby One SC', cursive;
+	font-size: 40px;
+}
+@media only screen and (min-width: 420px) {
+	.logo {
+		font-size: 48px;
+	}
+}
+@media only screen and (min-width: 620px) {
+	.logo {
+		font-size: 56px;
+	}
 }
 
 .game-stats {
   display: flex;
+	font-size: 20px;
+}
+@media only screen and (min-width: 420px) {
+	.game-stats {
+		font-size: 24px;
+	}
+}
+@media only screen and (min-width: 620px) {
+	.game-stats {
+		font-size: 28px;
+	}
+}
+
+.moves-label, .timer-label {
+	display: none;
+}
+@media only screen and (min-width: 420px) {
+	.moves-label, .timer-label {
+		display: inline-block;
+	}
 }
 
 .timer {
@@ -100,8 +132,7 @@ header {
   transform-style: preserve-3d;
 }
 
-.card-front,
-.card-back {
+.card-front, .card-back {
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -121,6 +152,20 @@ header {
   background-color: gray;
 }
 
+.card-symbol {
+	font-size: 32px;
+}
+@media only screen and (min-width: 420px) {
+	.card-symbol {
+		font-size: 48px;
+	}
+}
+@media only screen and (min-width: 620px) {
+	.card-symbol {
+		font-size: 72px;
+	}
+}
+
 .card-flipped {
   transform: rotateY(180deg);
   pointer-events: none;
@@ -137,6 +182,17 @@ header {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
+	font-size: 16px;
+}
+@media only screen and (min-width: 420px) {
+	.reset-game {
+		font-size: 20px;
+	}
+}
+@media only screen and (min-width: 620px) {
+	.reset-game {
+		font-size: 24px;
+	}
 }
 
 .reset-game-enabled {
@@ -167,4 +223,46 @@ header {
 
 .completion-title {
 	font-family: 'Bowlby One SC', cursive;
+	font-size: 16px;
+}
+@media only screen and (min-width: 420px) {
+	.completion-title {
+		font-size: 22px;
+	}
+}
+@media only screen and (min-width: 520px) {
+	.completion-title {
+		font-size: 28px;
+	}
+}
+@media only screen and (min-width: 620px) {
+	.completion-title {
+		font-size: 34px;
+	}
+}
+
+.completion-stars, .completion-message {
+	font-size: 10px;
+	color: gray;
+}
+@media only screen and (min-width: 420px) {
+	.completion-stars, .completion-message {
+		font-size: 16px;
+	}
+}
+@media only screen and (min-width: 520px) {
+	.completion-stars, .completion-message {
+		font-size: 22px;
+	}
+}
+@media only screen and (min-width: 620px) {
+	.completion-stars, .completion-message {
+		font-size: 28px;
+	}
+}
+
+.completion-message {
+	background-color: lightgray;
+	border-radius: 10px;
+	padding: 5px;
 }
