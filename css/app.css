@@ -25,6 +25,10 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+button {
+	font-family: inherit;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -39,6 +43,7 @@ body {
   max-width: 800px;
   margin: 25px auto auto;
   text-align: center;
+	font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 /* -------------------- Header ---------------------- */
@@ -50,6 +55,7 @@ header {
 
 .logo {
   text-align: left;
+	font-family: 'Bowlby One SC', cursive;
 }
 
 .game-stats {
@@ -157,4 +163,8 @@ header {
 
 .completion-screen-enabled {
   top: 200px;
+}
+
+.completion-title {
+	font-family: 'Bowlby One SC', cursive;
 }
