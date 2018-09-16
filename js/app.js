@@ -1,4 +1,4 @@
-const cardSymbols = ['anchor', 'anchor', 'bicycle', 'bicycle', 'bolt', 'bolt', 'bomb', 'bomb', 'cube', 'cube', 'gem', 'gem', 'leaf', 'leaf', 'paper-plane', 'paper-plane'];
+const cardSymbols = ['bolt', 'bolt', 'bomb', 'bomb', 'football-ball', 'football-ball', 'gem', 'gem', 'heart', 'heart', 'poo', 'poo', 'robot', 'robot', 'rocket', 'rocket'];
 const cardsBoard = document.querySelector('.cards-board');
 const timerMinutes = document.querySelector('.minutes');
 const timerSeconds = document.querySelector('.seconds');

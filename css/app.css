@@ -233,6 +233,38 @@ header {
   background-color: #00B1D0;
 }
 
+.card-matched[data-symbol=bolt] .card-front {
+  color: yellow;
+}
+
+.card-matched[data-symbol=bomb] .card-front {
+  color: black;
+}
+
+.card-matched[data-symbol=football-ball] .card-front {
+  color: brown;
+}
+
+.card-matched[data-symbol=gem] .card-front {
+  color: antiquewhite;
+}
+
+.card-matched[data-symbol=heart] .card-front {
+  color: indianred;
+}
+
+.card-matched[data-symbol=poo] .card-front {
+  color: limegreen;
+}
+
+.card-matched[data-symbol=robot] .card-front {
+  color: silver;
+}
+
+.card-matched[data-symbol=rocket] .card-front {
+  color: midnightblue;
+}
+
 /* ------------------- Reset Button ------------------- */
 .reset-game {
   opacity: 0;
@@ -258,7 +290,7 @@ header {
 }
 
 .reset-game-enabled {
-  opacity: 0.6;
+  opacity: 0.8;
   pointer-events: auto;
 }
 
