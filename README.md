@@ -8,4 +8,4 @@ In order to play the game just run the [live version](https://barvilenski.github
 
 ## Author
 
-**Bar Vilenski** - [BarVilenski](https://github.com/barvilenski).
+**Bar Vilenski** - [barvilenski](https://github.com/barvilenski).
