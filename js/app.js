@@ -9,6 +9,7 @@ const completionScreen = document.querySelector('.completion-screen');
 const completionStars = document.querySelector('.completion-stars');
 const completionMessage = document.querySelector('.completion-message');
 const resetGameButton = document.querySelector('.reset-game');
+const cardFlipSound = new Audio('snd/card-flip.wav');
 let selectedCards = [], matchedCardsCounter = 0;
 let firstMove = true, movesCounter = 0, starsCounter = 3;
 let gameTimer, secondsCounter = 0;
@@ -58,6 +59,9 @@ function shuffle(array) {
 }
 
 function flipCard() {
+  cardFlipSound.currentTime = 0;
+  cardFlipSound.play();
+
   if (firstMove) {
     gameTimer = setInterval(setTime, 1000);
     resetGameButton.classList.add('reset-game-enabled');
