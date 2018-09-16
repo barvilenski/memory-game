@@ -112,6 +112,7 @@ header {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+	transition: filter 1s;
 }
 
 .cards-board-disabled {
@@ -219,22 +220,24 @@ header {
 /* ----------------- Completion Screen ---------------- */
 .completion-screen {
   position: absolute;
+	top: -500px;
+	left: 0;
+  right: 0;
   width: 80%;
   max-width: 500px;
-  top: -400px;
-  left: 0;
-  right: 0;
   margin-left: auto;
   margin-right: auto;
+	border-radius: 20px;
   padding: 40px;
-  border-radius: 20px;
   text-align: center;
   background-color: white;
-  transition: top 0.5s;
+	opacity: 0;
+  transition: opacity 1s;
 }
 
 .completion-screen-enabled {
-  top: 200px;
+	top: 200px;
+  opacity: 1;
 }
 
 .completion-title {
