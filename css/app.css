@@ -37,6 +37,8 @@ button {
 
 html {
   height: 100%;
+	background-color: #111860;
+	background-image: linear-gradient(to bottom, #111860, #332e6a, #4c4474, #635c7d, #797586);
 }
 
 body {
@@ -59,6 +61,7 @@ header {
   text-align: left;
 	font-family: 'Bowlby One SC', cursive;
 	font-size: 40px;
+	color: #E5E540;
 }
 @media only screen and (min-width: 420px) {
 	.logo {
@@ -86,6 +89,14 @@ header {
 	}
 }
 
+.seperator, .moves, .timer {
+	color: #797586;
+}
+
+.timer {
+  margin-left: 20px;
+}
+
 .moves-label, .timer-label {
 	display: none;
 }
@@ -95,12 +106,13 @@ header {
 	}
 }
 
-.timer {
-  margin-left: 20px;
+.moves-value, .timer-value {
+	color: #C7FCEC;
 }
 
 .stars {
   margin-left: auto;
+	color: #E5E540;
 }
 
 .star-disabled {
@@ -113,6 +125,8 @@ header {
   display: flex;
   flex-wrap: wrap;
 	transition: filter 1s;
+	margin-top: 5px;
+	margin-bottom: 15px;
 }
 
 .cards-board-disabled {
@@ -157,10 +171,12 @@ header {
 }
 
 .card-front, .card-back {
+	position: absolute;
+	top: 0;
+	left: 0;
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  position: absolute;
   backface-visibility: hidden;
   display: flex;
   justify-content: center;
@@ -168,22 +184,17 @@ header {
 }
 
 .card-front {
-  transform: rotateY(180deg);
-  background-color: lightgray;
 	z-index: 2;
+	color: #C7FCEC;
+  background-color: #00B1D0;
+	transform: rotateY(180deg);
+	transition: all 0.4s ease 0.6s;
 }
 
 .card-back {
-  background-color: gray;
-	border: 5px solid lightgray;
-}
-
-.card-front .card-symbol {
-	color: white;
-}
-
-.card-back .card-symbol {
-	opacity: 0.2;
+	color: #F2F23C;
+  background-image: linear-gradient(to bottom, #d6d640, #d6d740, #d7d741, #d7d841, #d8d841);
+	border: 5px solid #F2F23C;
 }
 
 .card-symbol {
@@ -200,6 +211,10 @@ header {
 	}
 }
 
+.card-back .card-symbol {
+	opacity: 0.3;
+}
+
 .card-flipped {
   transform: rotateY(180deg);
   pointer-events: none;
@@ -210,17 +225,21 @@ header {
 }
 
 .card-matched {
-  pointer-events: none;
+	pointer-events: none;
+}
+
+.card-matched .card-front {
+	color: #484554;
+	background-color: #A3C5CC;
 }
 
 /* ------------------- Reset Button ------------------- */
 .reset-game {
 	opacity: 0;
 	font-size: 16px;
-	color: white;
-	background-color: gray;
+	color: #C7FCEC;
+	background-color: #111860;
 	padding: 6px;
-	margin-top: 5px;
 	border: none;
   border-radius: 5px;
   pointer-events: none;
@@ -261,7 +280,7 @@ header {
 	border-radius: 20px;
   padding: 40px;
   text-align: center;
-  background-color: white;
+  background-color: #FCF7FF;
 	opacity: 0;
   transition: opacity 1s;
 }
@@ -274,6 +293,7 @@ header {
 .completion-title {
 	font-family: 'Bowlby One SC', cursive;
 	font-size: 16px;
+	color: #7A1E6C;
 }
 @media only screen and (min-width: 420px) {
 	.completion-title {
@@ -312,11 +332,17 @@ header {
 }
 
 .completion-stars {
+	color: #ADA9BB;
 	margin: 10px auto;
 }
 
+.completion-stars .star-disabled {
+  opacity: 0.2;
+}
+
 .completion-message {
-	background-color: lightgray;
+	color: #ADA9BB;
+	background-color: #E2DEE5;
 	border-radius: 10px;
 	padding: 10px;
 }
