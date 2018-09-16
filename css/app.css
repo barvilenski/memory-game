@@ -12,21 +12,21 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 
 button {
-	font-family: inherit;
+  font-family: inherit;
 }
 
 *, *:before, *:after {
@@ -37,60 +37,60 @@ button {
 
 html {
   height: 100%;
-	background-color: #111860;
-	background-image: linear-gradient(to bottom, #111860, #332e6a, #4c4474, #635c7d, #797586);
+  background-color: #111860;
+  background-image: linear-gradient(to bottom, #111860, #332e6a, #4c4474, #635c7d, #797586);
 }
 
 body {
   max-width: 720px;
   margin: 25px auto auto;
-	padding: 20px;
+  padding: 20px;
   text-align: center;
-	font-family: 'Ubuntu Condensed', sans-serif;
-	font-size: 16px;
-	line-height: 1;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 16px;
+  line-height: 1;
 }
 
 /* -------------------- Header ---------------------- */
 header {
-	padding: 5px;
+  padding: 5px;
   user-select: none;
 }
 
 .logo {
   text-align: left;
-	font-family: 'Bowlby One SC', cursive;
-	font-size: 40px;
-	color: #E5E540;
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 40px;
+  color: #E5E540;
 }
 @media only screen and (min-width: 420px) {
-	.logo {
-		font-size: 48px;
-	}
+  .logo {
+    font-size: 48px;
+  }
 }
 @media only screen and (min-width: 620px) {
-	.logo {
-		font-size: 56px;
-	}
+  .logo {
+    font-size: 56px;
+  }
 }
 
 .game-stats {
   display: flex;
-	font-size: 20px;
+  font-size: 20px;
 }
 @media only screen and (min-width: 420px) {
-	.game-stats {
-		font-size: 24px;
-	}
+  .game-stats {
+    font-size: 24px;
+  }
 }
 @media only screen and (min-width: 620px) {
-	.game-stats {
-		font-size: 28px;
-	}
+  .game-stats {
+    font-size: 28px;
+  }
 }
 
 .seperator, .moves, .timer {
-	color: #797586;
+  color: #797586;
 }
 
 .timer {
@@ -98,21 +98,21 @@ header {
 }
 
 .moves-label, .timer-label {
-	display: none;
+  display: none;
 }
 @media only screen and (min-width: 420px) {
-	.moves-label, .timer-label {
-		display: inline-block;
-	}
+  .moves-label, .timer-label {
+    display: inline-block;
+  }
 }
 
 .moves-value, .timer-value {
-	color: #C7FCEC;
+  color: #C7FCEC;
 }
 
 .stars {
   margin-left: auto;
-	color: #E5E540;
+  color: #E5E540;
 }
 
 .star-disabled {
@@ -124,9 +124,9 @@ header {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-	transition: filter 1s;
-	margin-top: 5px;
-	margin-bottom: 15px;
+  transition: filter 1s;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .cards-board-disabled {
@@ -149,31 +149,31 @@ header {
 }
 
 .card:hover {
-	cursor: pointer;
-	transform: rotateY(18deg);
+  cursor: pointer;
+  transform: rotateY(18deg);
 }
 
 .card::after {
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 100%;
-	width: 100%;
-	border-radius: 10px;
-	content: '';
-	opacity: 0;
-	transition: opacity 0.4s;
-	background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2));
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  content: '';
+  opacity: 0;
+  transition: opacity 0.4s;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2));
 }
 
 .card:hover::after {
-	opacity: 1;
+  opacity: 1;
 }
 
 .card-front, .card-back {
-	position: absolute;
-	top: 0;
-	left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -184,35 +184,35 @@ header {
 }
 
 .card-front {
-	z-index: 2;
-	color: #C7FCEC;
-	background-color: #A3C5CC;
-	transform: rotateY(180deg);
-	transition: all 0.4s ease 0.6s;
+  z-index: 2;
+  color: #C7FCEC;
+  background-color: #A3C5CC;
+  transform: rotateY(180deg);
+  transition: all 0.4s ease 0.6s;
 }
 
 .card-back {
-	color: #F2F23C;
+  color: #F2F23C;
   background-image: linear-gradient(to bottom, #d6d640, #d6d740, #d7d741, #d7d841, #d8d841);
-	border: 5px solid #F2F23C;
+  border: 5px solid #F2F23C;
 }
 
 .card-symbol {
-	font-size: 32px;
+  font-size: 32px;
 }
 @media only screen and (min-width: 420px) {
-	.card-symbol {
-		font-size: 48px;
-	}
+  .card-symbol {
+    font-size: 48px;
+  }
 }
 @media only screen and (min-width: 620px) {
-	.card-symbol {
-		font-size: 72px;
-	}
+  .card-symbol {
+    font-size: 72px;
+  }
 }
 
 .card-back .card-symbol {
-	opacity: 0.3;
+  opacity: 0.3;
 }
 
 .card-flipped {
@@ -221,40 +221,40 @@ header {
 }
 
 .card-flipped::after {
-	content: none;
+  content: none;
 }
 
 .card-matched {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 .card-matched .card-front {
-	color: #484554;
+  color: #484554;
   background-color: #00B1D0;
 }
 
 /* ------------------- Reset Button ------------------- */
 .reset-game {
-	opacity: 0;
-	font-size: 16px;
-	color: #C7FCEC;
-	background-color: #111860;
-	padding: 6px;
-	border: none;
+  opacity: 0;
+  font-size: 16px;
+  color: #C7FCEC;
+  background-color: #111860;
+  padding: 6px;
+  border: none;
   border-radius: 5px;
   pointer-events: none;
   transition: opacity 0.3s;
 }
 @media only screen and (min-width: 420px) {
-	.reset-game {
-		font-size: 20px;
-	}
+  .reset-game {
+    font-size: 20px;
+  }
 }
 @media only screen and (min-width: 620px) {
-	.reset-game {
-		font-size: 24px;
-		padding: 10px;
-	}
+  .reset-game {
+    font-size: 24px;
+    padding: 10px;
+  }
 }
 
 .reset-game-enabled {
@@ -263,77 +263,77 @@ header {
 }
 
 .reset-game-enabled:hover {
-	cursor: pointer;
-	opacity: 1;
+  cursor: pointer;
+  opacity: 1;
 }
 
 /* ----------------- Completion Screen ---------------- */
 .completion-screen {
   position: absolute;
-	top: -500px;
-	left: 0;
+  top: -500px;
+  left: 0;
   right: 0;
   width: 80%;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
-	border-radius: 20px;
+  border-radius: 20px;
   padding: 40px;
   text-align: center;
   background-color: #FCF7FF;
-	opacity: 0;
+  opacity: 0;
   transition: opacity 1s;
 }
 
 .completion-screen-enabled {
-	top: 200px;
+  top: 200px;
   opacity: 1;
 }
 
 .completion-title {
-	font-family: 'Bowlby One SC', cursive;
-	font-size: 16px;
-	color: #7A1E6C;
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 16px;
+  color: #7A1E6C;
 }
 @media only screen and (min-width: 420px) {
-	.completion-title {
-		font-size: 22px;
-	}
+  .completion-title {
+    font-size: 22px;
+  }
 }
 @media only screen and (min-width: 520px) {
-	.completion-title {
-		font-size: 28px;
-	}
+  .completion-title {
+    font-size: 28px;
+  }
 }
 @media only screen and (min-width: 620px) {
-	.completion-title {
-		font-size: 34px;
-	}
+  .completion-title {
+    font-size: 34px;
+  }
 }
 
 .completion-stars, .completion-message {
-	font-size: 10px;
-	color: gray;
+  font-size: 10px;
+  color: gray;
 }
 @media only screen and (min-width: 420px) {
-	.completion-stars, .completion-message {
-		font-size: 16px;
-	}
+  .completion-stars, .completion-message {
+    font-size: 16px;
+  }
 }
 @media only screen and (min-width: 520px) {
-	.completion-stars, .completion-message {
-		font-size: 22px;
-	}
+  .completion-stars, .completion-message {
+    font-size: 22px;
+  }
 }
 @media only screen and (min-width: 620px) {
-	.completion-stars, .completion-message {
-		font-size: 28px;
-	}
+  .completion-stars, .completion-message {
+    font-size: 28px;
+  }
 }
 
 .completion-stars {
-	color: #ADA9BB;
-	margin: 10px auto;
+  color: #ADA9BB;
+  margin: 10px auto;
 }
 
 .completion-stars .star-disabled {
@@ -341,8 +341,8 @@ header {
 }
 
 .completion-message {
-	color: #ADA9BB;
-	background-color: #E2DEE5;
-	border-radius: 10px;
-	padding: 10px;
+  color: #ADA9BB;
+  background-color: #E2DEE5;
+  border-radius: 10px;
+  padding: 10px;
 }
