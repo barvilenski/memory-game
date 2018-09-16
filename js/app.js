@@ -14,6 +14,7 @@ let selectedCards = [], matchedCardsCounter = 0;
 let firstMove = true, movesCounter = 0, starsCounter = 3;
 let gameTimer, secondsCounter = 0;
 
+/* This function initializes the game's elements */
 function initGame() {
   const shuffledSymbols = shuffle(cardSymbols);
   for (let symbol of shuffledSymbols) {
@@ -43,6 +44,7 @@ function initGame() {
   resetGameButton.addEventListener('click', resetGame);
 }
 
+/* This function gets an array and returns the array shuffled */
 function shuffle(array) {
   let currentIndex = array.length, randomIndex, temporaryValue;
 
@@ -58,6 +60,7 @@ function shuffle(array) {
   return array;
 }
 
+/* This function handles card flip events */
 function flipCard() {
   cardFlipSound.currentTime = 0;
   cardFlipSound.play();
@@ -83,22 +86,26 @@ function flipCard() {
   }
 }
 
+/* This function updates the timer */
 function setTime() {
   secondsCounter++;
   timerMinutes.textContent = padTime(parseInt(secondsCounter / 60));
   timerSeconds.textContent = padTime(secondsCounter % 60);
 }
 
+/* This function formats time values */
 function padTime(time) {
   return time > 9 ? time : '0' + time;
 }
 
+/* This function increments the moves counter */
 function incrementMovesCounter() {
   movesCounter++;
   movesNumber.textContent = movesCounter;
   updateStarRating();
 }
 
+/* This function updates the stars rating */
 function updateStarRating() {
   switch (movesCounter) {
     case 14:
@@ -112,6 +119,7 @@ function updateStarRating() {
   }
 }
 
+/* This function checks if the selected cards match */
 function checkCardsMatch() {
   if (selectedCards[0].getAttribute('data-symbol') === selectedCards[1].getAttribute('data-symbol')) {
     matchSelectedCards();
@@ -120,6 +128,7 @@ function checkCardsMatch() {
   }
 }
 
+/* This function matches the selected cards */
 function matchSelectedCards() {
   for (let card of selectedCards) {
     card.classList.add('card-matched');
@@ -128,6 +137,7 @@ function matchSelectedCards() {
   matchedCardsCounter += 2;
 }
 
+/* This function resets the selected cards */
 function resetSelectedCards() {
   for (let card of selectedCards) {
     card.classList.remove('card-flipped');
@@ -135,6 +145,7 @@ function resetSelectedCards() {
   selectedCards = [];
 }
 
+/* This function ends the game and displays a greeting message */
 function finishGame() {
   clearInterval(gameTimer);
 
@@ -156,6 +167,7 @@ function finishGame() {
   completionScreen.classList.add('completion-screen-enabled');
 }
 
+/* This function resets the game */
 function resetGame() {
   window.location.reload(false);
 }
