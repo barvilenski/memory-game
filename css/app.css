@@ -315,6 +315,7 @@ header {
   background-color: #FCF7FF;
   opacity: 0;
   transition: opacity 1s;
+  user-select: none;
 }
 
 .completion-screen-enabled {
