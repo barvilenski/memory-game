@@ -6,8 +6,9 @@ const movesNumber = document.querySelector('.moves-value');
 const starsContainer = document.querySelector('.stars');
 const starsArray = document.querySelectorAll('.star');
 const completionScreen = document.querySelector('.completion-screen');
-const completionStars = document.querySelector('.completion-stars');
-const completionMessage = document.querySelector('.completion-message');
+const completionTitle = document.querySelector('.completion-title');
+const completionScore = document.querySelector('.completion-score-value');
+const completionStars = document.querySelectorAll('.completion-stars .star');
 const resetGameButton = document.querySelector('.reset-game');
 const cardFlipSound = new Audio('snd/card-flip.wav');
 let selectedCards = [], matchedCardsCounter = 0;
@@ -149,22 +150,38 @@ function resetSelectedCards() {
 function finishGame() {
   clearInterval(gameTimer);
 
-  completionStars.innerHTML = starsContainer.innerHTML;
-
   switch (starsCounter) {
     case 3:
-      completionMessage.textContent = 'Perfect job, you did extremely well!'
+      completionTitle.textContent = 'PERFECT! YOU DID EXTREMELY WELL!';
       break;
     case 2:
-      completionMessage.textContent = 'Nicely done, almost perfect!'
+      completionTitle.textContent = 'NICELY DONE! ALMOST PERFECT!';
+      completionStars[2].classList.add('star-disabled');
       break;
     case 1:
-      completionMessage.textContent = 'Practice some more for better results!'
+      completionTitle.textContent = 'PRACTICE SOME MORE FOR BETTER RESULTS!';
+      completionStars[2].classList.add('star-disabled');
+      completionStars[1].classList.add('star-disabled');
       break;
   }
 
+  completionScore.textContent = calculateScore();
+
   cardsBoard.classList.add('cards-board-blurred');
   completionScreen.classList.add('completion-screen-enabled');
+}
+
+/* This function calculates the score of the player and returns it */
+function calculateScore() {
+  let score = 8000;
+
+  if (movesCounter > 8 && movesCounter < 28) {
+    score -= ((movesCounter - 8) * 300);
+  } else if (movesCounter >= 28) {
+    score = 2000;
+  }
+
+  return score;
 }
 
 /* This function resets the game */
