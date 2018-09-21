@@ -63,8 +63,8 @@ function shuffle(array) {
 
 /* This function handles card flip events */
 function flipCard() {
-  cardFlipSound.currentTime = 0;
-  cardFlipSound.play();
+  const flipSoundClone = cardFlipSound.cloneNode();
+  flipSoundClone.play();
 
   if (firstMove) {
     gameTimer = setInterval(setTime, 1000);
