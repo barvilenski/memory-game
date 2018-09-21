@@ -10,6 +10,7 @@ const completionTitle = document.querySelector('.completion-title');
 const completionScore = document.querySelector('.completion-score-value');
 const completionStars = document.querySelectorAll('.completion-stars .star');
 const resetGameButton = document.querySelector('.reset-game');
+const cardFlipSound = new Audio('snd/card-flip.wav');
 let selectedCards = [], matchedCardsCounter = 0;
 let firstMove = true, movesCounter = 0, starsCounter = 3;
 let gameTimer, secondsCounter = 0;
@@ -62,7 +63,7 @@ function shuffle(array) {
 
 /* This function handles card flip events */
 function flipCard() {
-  const cardFlipSound = new Audio('snd/card-flip.wav');
+  cardFlipSound.currentTime = 0;
   cardFlipSound.play();
 
   if (firstMove) {
